@@ -159,6 +159,8 @@ void keyInput(unsigned char key, int x, int y) {
             break;
         case 'a':
             angulo_x++;
+        case 'A':
+          angulo_x++;
     }
 
 }
