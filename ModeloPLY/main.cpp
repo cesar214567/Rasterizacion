@@ -26,7 +26,7 @@ const char *fragmentShaderSource = "#version 330 core\n"
 
 
 Model_PLY model;
-char *archivo = "models/bunny.ply";
+char *archivo = "models/cow.ply";
 
 int main()
 {
