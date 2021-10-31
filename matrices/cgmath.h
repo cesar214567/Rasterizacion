@@ -41,9 +41,21 @@ public:
         mat[4*2+2] = sz;
     }
     void rotacion(float gx, float gy, float gz) {
-        mat4 tmpX;
-        tmpX.rotacionX(ANG2RAD*gx);
-        multiplicacion(tmpX);
+        mat4 tmp;
+        if(gx!= 0){
+          tmp.rotacionX(ANG2RAD * gx);
+          multiplicacion(tmp);
+        }
+        if (gy != 0)
+        {
+          tmp.rotacionY(ANG2RAD * gy);
+          multiplicacion(tmp);
+        }
+        if (gz != 0)
+        {
+          tmp.rotacionZ(ANG2RAD * gz);
+          multiplicacion(tmp);
+        }
     }
 
     void multiplicacion(mat4 &m) {
@@ -68,6 +80,22 @@ public:
         mat[10] = cos(gx);
     }
 
+    void rotacionY(float gx)
+    {
+      identity();
+      mat[0] = cos(gx);
+      mat[2] = sin(gx);
+      mat[8] = -sin(gx);
+      mat[10] = cos(gx);
+    }
+    void rotacionZ(float gx)
+    {
+      identity();
+      mat[0] = cos(gx);
+      mat[1] = -sin(gx);
+      mat[4] = sin(gx);
+      mat[5] = cos(gx);
+    }
 };
 
 

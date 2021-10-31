@@ -15,6 +15,8 @@ GLuint p1_id;
 GLint vertex_id = 0, normal_id = 1;
 GLuint matrix_model_id;
 float angulo_x;
+float angulo_y;
+float angulo_z;
 
 mat4 matrix_model;
 
@@ -126,7 +128,7 @@ void drawScene(void) {
     //matrix_model.traslacion(0.5,0.5,0.5);
     matrix_model.print();
 
-    matrix_model.rotacion(angulo_x, 0, 0);
+    matrix_model.rotacion(angulo_x, angulo_y, angulo_z);
     matrix_model.print();
 
     GLboolean transpose = GL_FALSE;
@@ -156,8 +158,12 @@ void resize(int w, int h) {
 void keyInput(unsigned char key, int x, int y) {
     switch (key) {
         case 27: exit(0);
-        case 'a': angulo_x++; break;
-        case 'A': angulo_x--; break;
+        case 'x': angulo_x++; break;
+        case 'X': angulo_x--; break;
+        case 'y': angulo_y++; break;
+        case 'Y': angulo_y--; break;
+        case 'z': angulo_z++; break;
+        case 'Z': angulo_z--; break;
     }
     glutPostRedisplay();
 }
